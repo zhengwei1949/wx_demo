@@ -1,0 +1,12 @@
+<import src="../movie/movie-template.wxml" />
+<template name="movieGridTemplate">
+  <!--flex对scroll-view无效,要设置grid-container的高度才能触发bindscrolltolower,scroll-view不支持下拉刷新-->
+  <!--<scroll-view class="movie-grid-container" scroll-y="true" scroll-x="false" bindscrolltolower="onScrollLower">-->
+  <view class="movie-grid-container">
+  <block wx:for="{{movies}}" wx:for-item="movie" wx:key="moviesfor">
+    <view class="single-view-container">
+      <template is="movieTemplate" data="{{...movie}}" />
+    </view>
+  </block>
+  </view>
+</template>
